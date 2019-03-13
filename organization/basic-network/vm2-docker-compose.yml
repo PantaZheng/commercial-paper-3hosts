@@ -30,28 +30,27 @@ services:
 
   cli:
     container_name: cli
-    image: hyperledger/fabric-tools:$IMAGE_TAG
-    tty: true
-    stdin_open: true
-    environment:
-      - GODEBUG=netdns=go
-      - GOPATH=/opt/gopath
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      - FABRIC_LOGGING_SPEC=info
-      - CORE_PEER_ID=cli
-      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
-      - CORE_CHAINCODE_KEEPALIVE=10
-    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-    command: /bin/bash
+    extends:
+      file: base/docker-compose-base.yml
+      service: vm2-cli
     volumes:
-        - /var/run/:/host/var/run/
-        - ./../chaincode/:/opt/gopath/src/github.com/
-        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+      - ../chaincode/:/opt/gopath/src/github.com/
     networks:
-        - basic
-    #depends_on:
-    #  - orderer.example.com
-    #  - peer0.org1.example.com
-    #  - couchdb
+      - basic
+    depends_on:
+      - peer0.org1.example.com
+      - couchdb
+   
+  cliDigiBank:
+    container_name: cliDigiBank
+    extends:
+      file: base/docker-compose-base.yml
+      service: vm2-cli
+    networks:
+      - basic
+    volumes:
+      - ../digibank:/opt/gopath/src/github.com/
+    depends_on:
+      - peer0.org1.example.com
+      - couchdb
+      - cli

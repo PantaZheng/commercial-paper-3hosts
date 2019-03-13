@@ -39,12 +39,12 @@ function replacePrivateKey() {
   echo "##########################################################"
   echo "#########  Replace   Orderer   Private  Key ##############"
   echo "##########################################################"
-  cp docker-compose-template.yml docker-compose.yml
+  cp vm1-docker-compose-template.yml vm1-docker-compose.yml
   cd crypto-config/peerOrganizations/org1.example.com/ca/
   PRIV_KEY=$(ls *_sk)
   cd "$CURRENT_DIR"
   set -x
-  sed -i "s/CA_SK/${PRIV_KEY}/g" docker-compose.yml
+  sed -i "s/CA_SK/${PRIV_KEY}/g" vm1-docker-compose.yml
   set +x
 }
 
