@@ -9,7 +9,7 @@ set -ev
 
 # don't rewrite paths for Windows Git Bash users
 export MSYS_NO_PATHCONV=1
-export IMAGE_TAG=latest
+export IMAGE_TAG="latest"
 docker-compose -f vm3-docker-compose.yml down
 
 

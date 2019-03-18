@@ -41,15 +41,15 @@ services:
       - peer0.org2.example.com
       - couchdb
    
-  cliMagnetCorp:
-    container_name: cliMagnetCorp
+  cliDigiBank:
+    container_name: cliDigiBank
     extends:
       file: base/docker-compose-base.yaml
       service: vm3-cli
     networks:
       - basic
     volumes:
-      - ../magnetocorp:/opt/gopath/src/github.com/
+      - ../digibank:/opt/gopath/src/github.com/
     depends_on:
       - peer0.org2.example.com
       - couchdb

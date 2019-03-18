@@ -53,7 +53,7 @@ services:
     environment:
       - GODEBUG=netdns=go
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      - FABRIC_LOGGING_SPEC=info
+      - FABRIC_LOGGING_SPEC=debug
       - CORE_PEER_ID=cli
       - CORE_CHAINCODE_KEEPALIVE=10
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
