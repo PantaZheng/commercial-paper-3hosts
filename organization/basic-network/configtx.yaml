@@ -18,7 +18,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.member')"
             Admins: 
                 Type: Signature
-                Rule: "OR('OrdererMSP.member')"
+                Rule: "OR('OrdererMSP.admin')"
     - &Org1
         Name: Org1MSP
         ID: Org1MSP
@@ -59,6 +59,17 @@ Organizations:
             Endorsement:
                 Type: Signature
                 Rule: "OR('Org2MSP.peer')"
+
+Capabilities:
+    Channel: &ChannelCapabilities
+        V1_3: true
+    Orderer: &OrdererCapabilities
+        V1_1: true
+    Application: &ApplicationCapabilities
+        V1_3: true
+        V1_2: false
+        V1_1: false
+
 Application: &ApplicationDefaults
     Organizations:
     Policies:
@@ -77,6 +88,10 @@ Application: &ApplicationDefaults
         Endorsement:
             Type: ImplicitMeta
             Rule: "MAJORITY Endorsement"
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+
 Orderer: &OrdererDefaults
     OrdererType: solo
     Addresses:
@@ -114,6 +129,9 @@ Channel: &ChannelDefaults
         Admins:
             Type: ImplicitMeta
             Rule: "MAJORITY Admins"
+    Capabilities:
+        <<: *ChannelCapabilities
+
 Profiles:
     TwoOrgsOrdererGenesis:
         <<: *ChannelDefaults
@@ -121,6 +139,8 @@ Profiles:
             <<: *OrdererDefaults
             Organizations:
                 - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
         Consortiums:
             SampleConsortium:
                 Organizations:
@@ -134,4 +154,5 @@ Profiles:
             Organizations:
                 - *Org1
                 - *Org2
-
+            Capabilities:
+                <<: *ApplicationCapabilities
