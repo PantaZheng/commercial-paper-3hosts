@@ -18,7 +18,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.member')"
             Admins: 
                 Type: Signature
-                Rule: "OR('OrdererMSP.admin')"
+                Rule: "OR('OrdererMSP.member')"
     - &Org1
         Name: Org1MSP
         ID: Org1MSP
