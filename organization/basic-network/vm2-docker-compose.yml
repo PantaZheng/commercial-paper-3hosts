@@ -36,6 +36,7 @@ services:
     volumes:
       - ../chaincode/:/opt/gopath/src/github.com/
       - /etc/hosts:/etc/hosts
+      - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     networks:
       - basic
     depends_on:

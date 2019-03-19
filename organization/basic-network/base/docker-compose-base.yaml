@@ -77,6 +77,7 @@ services:
     volumes:
         - /var/run/:/host/var/run/
         - ../crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        
 
   vm3-cli:
     extends:
