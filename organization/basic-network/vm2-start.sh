@@ -21,6 +21,6 @@ export FABRIC_START_TIMEOUT=3
 #echo ${FABRIC_START_TIMEOUT}
 sleep ${FABRIC_START_TIMEOUT}
 
-docker exec peer0.org1.example.com peer channel create -o orderer.example.com:7050 -c mychannel -f /etc/hyperledger/configtx/channel.tx
+docker exec peer0.org1.example.com  peer channel create -o orderer.example.com:7050 -c mychannel -f /etc/hyperledger/configtx/channel.tx
 
-docker exec peer0.org1.example.com peer channel join -b mychannel.block
+docker exec peer0.org1.example.com  peer channel join -b mychannel.block
