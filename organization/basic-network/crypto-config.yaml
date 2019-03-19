@@ -5,9 +5,7 @@
 
 OrdererOrgs:
   - Name: Orderer
-    Domain: example.com
-    Specs:
-      - Hostname: orderer
+    Domain: orderer.example.com
 PeerOrgs:
   - Name: Org1
     Domain: org1.example.com
