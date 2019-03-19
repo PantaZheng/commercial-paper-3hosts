@@ -13,7 +13,7 @@ services:
       service: orderer-base
     volumes:
         - ../channel-artifacts/genesis.block:/etc/hyperledger/orderer/orderer.genesis.block
-        - ../crypto-config/ordererOrganizations/orderer.example.com/orderers/orderer.example.com/msp:/etc/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/orderer.example.com/msp:/etc/hyperledger/orderer/msp
     ports:
         - 7050:7050
   
