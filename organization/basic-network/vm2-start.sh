@@ -21,6 +21,6 @@ export FABRIC_START_TIMEOUT=3
 #echo ${FABRIC_START_TIMEOUT}
 sleep ${FABRIC_START_TIMEOUT}
 
-docker exec cli  peer channel create -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/channel.tx
+docker exec -e  create -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/channel.tx
 
 docker exec peer0.org1.example.com  peer channel join -b mychannel.block
