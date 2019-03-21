@@ -60,7 +60,7 @@ function generateChannelArtifacts() {
   echo "##########################################################"
   # generate genesis block for orderer
   set -x
-  configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block -channelID system_byfn
+  configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block -channelID systembyfn
   res=$?
   set +x
   if [ $res -ne 0 ]; then
