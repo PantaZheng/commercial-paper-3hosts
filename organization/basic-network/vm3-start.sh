@@ -21,5 +21,5 @@ export FABRIC_START_TIMEOUT=3
 #echo ${FABRIC_START_TIMEOUT}
 sleep ${FABRIC_START_TIMEOUT}
 
-docker exec peer0.org2.example.com peer channel fetch newset mychannel.block -o orderer.example.com:7050 -c mychannel
+docker exec peer0.org2.example.com peer channel fetch newest mychannel.block -o orderer.example.com:7050 -c mychannel
 docker exec peer0.org2.example.com peer channel join -b mychannel.block
