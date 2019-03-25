@@ -88,7 +88,7 @@ organizations:
 #
 orderers:
   orderer.example.com:
-    url: grpc://localhost:7050
+    url: grpc://orderer.example.com:7050
 
     # these are standard properties defined by the gRPC library
     # they will be passed in as-is to gRPC client constructor
@@ -114,7 +114,7 @@ peers:
 #
 certificateAuthorities:
   ca-org1:
-    url: http://localhost:7054
+    url: http://orderer.example.com:7054
     # the properties specified under this object are passed to the 'http' client verbatim when
     # making the request to the Fabric-CA server
     httpOptions:
