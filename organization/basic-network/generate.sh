@@ -39,13 +39,27 @@ function replacePrivateKey() {
   echo "##########################################################"
   echo "#########  Replace   Orderer   Private  Key ##############"
   echo "##########################################################"
-  cp vm1-docker-compose-template.yml vm1-docker-compose.yml
   cd crypto-config/peerOrganizations/org1.example.com/ca/
   PRIV_KEY=$(ls *_sk)
   cd "$CURRENT_DIR"
   set -x
-  sed -i "s/CA_SK/${PRIV_KEY}/g" vm1-docker-compose.yml
+  sed -i  "s/fabric-ca-server-config\/.*_sk/fabric-ca-server-config\/${PRIV_KEY}/g" vm1-docker-compose.yml
   set +x
+
+  cd crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/
+  PRIV_KEY=$(ls *_sk)
+  cd "$CURRENT_DIR"
+  set -x
+  sed -i  "s/keystore\/.*_sk/keystore\/${PRIV_KEY}/g" ../magnetocorp/application/addToWallet.js
+  set +x
+
+  cd crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/
+  PRIV_KEY=$(ls *_sk)
+  cd "$CURRENT_DIR"
+  set -x
+  sed -i  "s/keystore\/.*_sk/keystore\/${PRIV_KEY}/g" ../magnetocorp/application/addToWallet.js
+  set +x
+ 
 }
 
 function generateChannelArtifacts() {

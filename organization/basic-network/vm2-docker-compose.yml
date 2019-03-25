@@ -43,15 +43,15 @@ services:
       - peer0.org1.example.com
       - couchdb
    
-  cliMagnetoCrop:
-    container_name: cliMagnetCrop
+  cliMagnetoCorp:
+    container_name: cliMagnetCorp
     extends:
       file: base/docker-compose-base.yaml
       service: vm2-cli
     networks:
       - basic
     volumes:
-      - ../magnetocrop:/opt/gopath/src/github.com/
+      - ../magnetocorp:/opt/gopath/src/github.com/
     depends_on:
       - peer0.org1.example.com
       - couchdb
