@@ -2,7 +2,6 @@
 # Copyright IBM Corp All Rights Reserved
 #
 # SPDX-License-Identifier: Apache-2.0
-#
 version: '2'
 
 networks:
@@ -44,7 +43,7 @@ services:
       - couchdb
    
   cliMagnetoCorp:
-    container_name: cliMagnetCorp
+    container_name: cliMagnetoCorp
     extends:
       file: base/docker-compose-base.yaml
       service: vm2-cli
