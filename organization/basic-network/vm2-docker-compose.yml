@@ -51,6 +51,7 @@ services:
       - basic
     volumes:
       - ../magnetocorp:/opt/gopath/src/github.com/
+      - /etc/hosts:/etc/hosts
     depends_on:
       - peer0.org1.example.com
       - couchdb
