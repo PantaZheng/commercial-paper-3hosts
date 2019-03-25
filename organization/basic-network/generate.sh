@@ -57,7 +57,7 @@ function replacePrivateKey() {
   PRIV_KEY=$(ls *_sk)
   cd "$CURRENT_DIR"
   set -x
-  sed -i  "s/keystore\/.*_sk/keystore\/${PRIV_KEY}/g" ../magnetocorp/application/addToWallet.js
+  sed -i  "s/keystore\/.*_sk/keystore\/${PRIV_KEY}/g" ../digibank/application/addToWallet.js
   set +x
  
 }
