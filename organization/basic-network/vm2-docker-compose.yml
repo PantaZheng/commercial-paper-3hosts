@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 version: '2'
 
+volumes:
+  peer0.org1.example.com
+
 networks:
   basic:
 
