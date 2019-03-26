@@ -11,7 +11,10 @@ set -ev
 export MSYS_NO_PATHCONV=1
 export IMAGE_TAG="latest"
 docker-compose -f vm2-docker-compose.yml down
-
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker volume prune
+docker network prune
 
 docker-compose -f vm2-docker-compose.yml up -d
 
