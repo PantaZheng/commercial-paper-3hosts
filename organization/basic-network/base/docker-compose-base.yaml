@@ -45,6 +45,7 @@ services:
         - ../crypto-config/peerOrganizations/org1.example.com/users:/etc/hyperledger/fabric/users
         - ../channel-artifacts:/etc/hyperledger/configtx
         - /etc/hosts:/etc/hosts
+        - peer0.org1.example.com:/var/hyperledger/production
 
   peer0.org2.example.com:
     extends:
@@ -67,6 +68,7 @@ services:
         - ../crypto-config/peerOrganizations/org2.example.com/users:/etc/hyperledger/fabric/users
         - ../channel-artifacts:/etc/hyperledger/configtx
         - /etc/hosts:/etc/hosts
+        - peer0.org2.example.com:/var/hyperledger/production
 
   vm2-cli:
     extends:
