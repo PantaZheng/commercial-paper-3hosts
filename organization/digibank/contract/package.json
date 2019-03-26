@@ -1,4 +1,6 @@
 {
+    "composer-runtime-hlfv1":"1.8.0",
+    "composer-common":"0.19.9",
     "name": "papernet-js",
     "version": "0.0.1",
     "description": "Papernet Contract",
