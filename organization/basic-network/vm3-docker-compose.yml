@@ -52,7 +52,10 @@ services:
     networks:
       - basic
     volumes:
-      - ../digibank:/opt/gopath/src/github.com/
+      - ../magnetcorp/contract:/opt/gopath/src/github.com/contract
+      - ../digibank/application:/opt/gopath/src/github.com/application
+      - ../digibank/configuration:/opt/gopath/src/github.com/comfiguration
+      - ../digibank/gateway:/opt/gopath/src/github.com/gatway
       - /etc/hosts:/etc/hosts
     depends_on:
       - peer0.org2.example.com
